@@ -11,18 +11,14 @@ const WIDTH_SIZE = {
     medium: "420px",
     large: "560px",
   },
-
   desktop: {
-    small: "640px",
-    medium: "768px",
-    large: "900px",
+    small: "440px",
+    medium: "560px",
+    large: "600px",
   },
 };
 
-const getWidth = (
-  device: keyof typeof WIDTH_SIZE,
-  size: "small" | "medium" | "large"
-): number | string => {
+const getWidth = (device: keyof typeof WIDTH_SIZE, size: "small" | "medium" | "large"): string => {
   return WIDTH_SIZE[device][size];
 };
 
@@ -41,8 +37,8 @@ export const StyledModalContainer = styled.div<{
   border-radius: ${({ modalPosition }) => (modalPosition === "center" ? "8px" : "8px 8px 0 0")};
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
   z-index: 1000;
-  width: ${({ modalPosition }) =>
-    modalPosition === "bottom" ? "100%" : getWidth("mobile", "medium")};
+  width: ${({ modalPosition, size }) =>
+    modalPosition === "bottom" ? "100%" : getWidth("mobile", size)};
   max-width: 90%;
   display: flex;
   flex-direction: column;
@@ -51,11 +47,11 @@ export const StyledModalContainer = styled.div<{
   padding: 16px 24px;
 
   @media (min-width: 600px) {
-    width: ${({ size }) => getWidth("tablet", size)}px;
+    width: ${({ size }) => getWidth("tablet", size)};
   }
 
   @media (min-width: 900px) {
-    width: ${({ size }) => getWidth("desktop", size)}px;
+    width: ${({ size }) => getWidth("desktop", size)};
   }
 `;
 

@@ -1,10 +1,10 @@
 {
   "name": "river-modal-component",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "description": "river가 만든 Modal component 라이브러리",
   "type": "module",
-  "types": "dist/index.d.ts",
-  "main": "dist/index.js",
+  "types": "dist/lib/index.d.ts",
+  "main": "dist/lib/index.js",
   "module": "dist/index.js",
   "files": [
     "dist"

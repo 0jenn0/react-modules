@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import x_img from "../assets/images/x_img.png";
 import { ModalContextProvider, useModalContext } from "../hooks/useModalContext";
 import { ModalProps } from "../type";
@@ -36,9 +36,25 @@ export const ModalContent: React.FC<
   );
 };
 
-export const ModalTrigger: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+// export const ModalTrigger: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
+//   const { openModal } = useModalContext();
+//   return <button onClick={openModal}>{children}</button>;
+// };
+
+interface ModalTriggerProps {
+  children: ReactElement;
+  onClick?: () => void;
+}
+
+export const ModalTrigger: React.FC<ModalTriggerProps> = ({ children, onClick }) => {
   const { openModal } = useModalContext();
-  return <button onClick={openModal}>{children}</button>;
+
+  const handleClick = () => {
+    if (onClick) onClick();
+    openModal();
+  };
+
+  return React.cloneElement(children, { onClick: handleClick });
 };
 
 export const ModalClose: React.FC<React.PropsWithChildren<{ onClick?: () => void }>> = ({

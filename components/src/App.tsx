@@ -10,7 +10,9 @@ function App() {
     <>
       <h1>Modal Test</h1>
       <Modal.Provider>
-        <Modal.Trigger>Modal 열기</Modal.Trigger>
+        <Modal.Trigger>
+          <button>닫기</button>
+        </Modal.Trigger>
         <Modal.Content modalPosition="center" closeButtonPosition="bottom" size="small">
           <Modal.Header title="모달창 타이틀" containClose />
           <Modal.Body>내용</Modal.Body>
@@ -22,7 +24,9 @@ function App() {
 
       {/* AlertModal */}
       <Modal.Provider>
-        <Modal.Trigger>AlertModal 열기</Modal.Trigger>
+        <Modal.Trigger>
+          <button>Alert 열기</button>
+        </Modal.Trigger>
 
         <AlertModal title="Alert" size="small" modalPosition="center" closeButtonPosition="top">
           AlertModal 내용
@@ -31,7 +35,9 @@ function App() {
 
       {/* PromptModal */}
       <Modal.Provider>
-        <Modal.Trigger>PromptModal 열기</Modal.Trigger>
+        <Modal.Trigger>
+          <button>PromptModal 열기</button>
+        </Modal.Trigger>
 
         <PromptModal title="Prompt" size="medium" modalPosition="center" closeButtonPosition="top">
           PromptModal 내용
@@ -40,7 +46,9 @@ function App() {
 
       {/* ConfirmModal */}
       <Modal.Provider>
-        <Modal.Trigger>ConfirmModal 열기</Modal.Trigger>
+        <Modal.Trigger>
+          <button>ConfirmModal 열기</button>
+        </Modal.Trigger>
 
         <ConfirmModal title="Confirm" size="small" modalPosition="center" closeButtonPosition="top">
           ConfirmModal 내용

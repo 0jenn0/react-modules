@@ -10,8 +10,11 @@
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
+    "isolatedModules": false, // Change to false to allow declaration
+    "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
+    "emitDeclarationOnly": true,
     "jsx": "react-jsx",
 
     /* Linting */
@@ -25,7 +28,6 @@
 
     "esModuleInterop": true
   },
-  "include": ["src/lib", "src/custom.d.ts"],
-  "exclude": ["node_modules", "dist", "**/*.test.ts"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src/lib/**/*.ts", "src/lib/**/*.tsx", "src/custom.d.ts"],
+  "exclude": ["node_modules", "dist", "**/*.test.ts"]
 }
